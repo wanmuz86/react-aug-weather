@@ -4,10 +4,14 @@ import Weather from './components/Weather'
 
 function App() {
 
+  const callApi = (cityName) => {
+    console.log(cityName);
+
+  }
   return (
     <div className='p-3'>
       <Search/>
-      <Weather/>
+      <Weather handleCityName={callApi}/>
     </div>
   )
 }
