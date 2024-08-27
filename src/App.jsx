@@ -10,8 +10,8 @@ function App() {
   }
   return (
     <div className='p-3'>
-      <Search/>
-      <Weather handleCityName={callApi}/>
+      <Search handleCityName={callApi}/>
+      <Weather />
     </div>
   )
 }
