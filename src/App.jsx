@@ -5,10 +5,10 @@ import Weather from './components/Weather'
 function App() {
 
   return (
-    <>
+    <div className='p-3'>
       <Search/>
       <Weather/>
-    </>
+    </div>
   )
 }
 
