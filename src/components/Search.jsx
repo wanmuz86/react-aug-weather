@@ -2,7 +2,19 @@ import React from 'react'
 
 const Search = () => {
   return (
-    <div>Search</div>
+    <div className='row'>
+        {/* 8 here means 8/12  == 2/3 */}
+        <div className='col-8'> 
+        <input type="text" className='form-control form' placeholder='Enter city name' />
+
+        </div>
+        {/* 8 here means 4/12  == 1/3 */}
+        <div className='col-4'>
+            <button className='btn btn-primary' style={{width:'100%'}}>Search</button>
+
+        </div>
+
+    </div>
   )
 }
 
