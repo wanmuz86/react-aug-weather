@@ -6,6 +6,8 @@ import { useState } from 'react'
 
 function App() {
   const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const callApi = async (cityName) => {
     console.log(cityName);
@@ -14,7 +16,15 @@ function App() {
     // async - await (second way to process Promises/ Asynchronous data)
     // We will embed in try catch
 
+    if (cityName.length < 3){
+      setError('Please fill in more than 3 characters')
+      return;
+    }
+
     try {
+      setLoading(true)
+      setError(false)
+      setWeather(null)
 
       // If there is keywaord await (you are processing promise/ asyncronous data), 
       // YOu need to declare this function as async function
@@ -26,13 +36,19 @@ function App() {
 
     } catch (error) {
       console.log(error)
-    } 
+      setError('An error occured ')
+    } finally {
+      setLoading(false)
+
+    }
 
   }
   return (
     <div className='p-3'>
       <Search handleCityName={callApi} />
-     { weather && <Weather weather={weather}/> }
+      {weather && <Weather weather={weather} />}
+      {error && <p className='text-danger'>{error}</p>}
+      {loading && <p>Loading...</p>}
     </div>
   )
 }
