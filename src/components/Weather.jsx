@@ -15,7 +15,7 @@ const Weather = ({weather}) => {
     return (
         <div className='card bg-light p-3 my-3 text-center'>
             <h2>Weather Info</h2>
-            <img src="" alt="" />
+            <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} alt="" width={200} style={{margin:'0px auto'}}/>
             <p>{Math.round(weather.main.temp - 273.15)} &deg; C</p>
             <p>{weather.weather[0].main}</p>
             <p>{weather.main.pressure}hPa</p>
